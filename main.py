@@ -1,4 +1,4 @@
-from task_manager.task_utils import add_task, mark_task_as_complete, view_pending_tasks, calculate_progress
+from task_utils import add_task, mark_task_as_complete, view_pending_tasks, calculate_progress, tasks
 
 def main():
     """Main function to run the Task Management System."""
@@ -23,7 +23,6 @@ def main():
         elif choice == "2":
             # Mark a task as complete
             print("\nMark Task as Complete")
-            from task_manager.task_utils import tasks
             
             if not tasks:
                 print("No tasks available.")
