@@ -110,3 +110,44 @@ def calculate_progress(tasks=tasks):
     completed_count = sum(1 for task in tasks if task["completed"])
     progress = (completed_count / len(tasks)) * 100
     return progress
+
+'''
+from datetime import datetime
+
+tasks = []  # List to store tasks
+
+def add_task(title, description, due_date):
+    task = {
+        "title": title,
+        "description": description,
+        "due_date": due_date,
+        "completed": False
+    }
+    tasks.append(task)  # Add the task to the list of tasks     
+    print("Task added successfully!")
+
+def mark_task_as_complete(index, tasks=tasks):
+    if 0 <= index < len(tasks):
+        tasks[index]["completed"] = True
+        print("Task marked as complete!")
+    else:
+        print("Error: Invalid task index. Please enter a number between 0 and", len(tasks) - 1)
+
+def view_pending_tasks(tasks=tasks):
+    pending_tasks = [task for task in tasks if not task["completed"]]
+    if not pending_tasks:
+        print("No pending tasks available.")
+    else:
+        print("\nPending Tasks:")
+        for i, task in enumerate(pending_tasks):
+            print(f"{i}. Title: {task['title']}")
+            print(f"   Description: {task['description']}")
+            print(f"   Due Date: {task['due_date']}")
+            print()
+
+def calculate_progress(tasks=tasks):
+    total_tasks = len(tasks)
+    completed_tasks = sum(1 for task in tasks if task["completed"])
+    progress = (completed_tasks / total_tasks) * 100 if total_tasks > 0 else 0
+    return progress
+'''
