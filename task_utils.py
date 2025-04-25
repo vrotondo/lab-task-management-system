@@ -1,4 +1,4 @@
-from datetime import datetime
+'''from datetime import datetime
 from validation import validate_task_title, validate_task_description, validate_due_date
 
 tasks = []
@@ -109,14 +109,20 @@ def calculate_progress(tasks=tasks):
         
     completed_count = sum(1 for task in tasks if task["completed"])
     progress = (completed_count / len(tasks)) * 100
-    return progress
+    return progress'''
 
-'''
+
 from datetime import datetime
+from validation import validate_task_title, validate_task_description, validate_due_date
 
 tasks = []  # List to store tasks
 
 def add_task(title, description, due_date):
+    # validate functions:
+    validate_due_date(due_date)
+    validate_task_description(description)
+    validate_task_title(title)
+
     task = {
         "title": title,
         "description": description,
@@ -150,4 +156,3 @@ def calculate_progress(tasks=tasks):
     completed_tasks = sum(1 for task in tasks if task["completed"])
     progress = (completed_tasks / total_tasks) * 100 if total_tasks > 0 else 0
     return progress
-'''

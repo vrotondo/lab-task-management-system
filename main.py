@@ -12,43 +12,39 @@ def main():
         choice = input("Enter your choice (1-5): ")
 
         if choice == "1":
-            # Add a new task
-            print("\nAdd a New Task")
-            title = input("Enter task title: ")
+            title = input("\nEnter task title: ")
             description = input("Enter task description: ")
             due_date = input("Enter due date (YYYY-MM-DD): ")
-            
             add_task(title, description, due_date)
-            
+
         elif choice == "2":
-            # Mark a task as complete
-            print("\nMark Task as Complete")
-            
             if not tasks:
-                print("No tasks available.")
+                print("\nNo tasks available.")
                 continue
-                
+
             print("\nAll Tasks:")
             for i, task in enumerate(tasks):
                 status = "Completed" if task["completed"] else "Pending"
                 print(f"{i}. {task['title']} ({status})")
-                
+
             task_index = input("\nEnter the index of the task to mark as complete: ")
-            mark_task_as_complete(task_index)
-            
+            try:
+                task_index = int(task_index)
+                mark_task_as_complete(task_index)
+            except ValueError:
+                print("Invalid input. Please enter a valid number.")
+
         elif choice == "3":
-            # View pending tasks
             view_pending_tasks()
-            
+
         elif choice == "4":
-            # View progress
             progress = calculate_progress()
             print(f"\nCurrent Progress: {progress:.2f}%")
-            
+
         elif choice == "5":
             print("Exiting the program...")
             break
-            
+
         else:
             print("Invalid choice. Please try again.")
 

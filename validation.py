@@ -1,4 +1,4 @@
-from datetime import datetime
+'''from datetime import datetime
 
 def validate_task_title(title):
     """
@@ -70,4 +70,26 @@ def validate_due_date(due_date):
         return True
     except ValueError:
         print("Error: Due date must be in the format YYYY-MM-DD.")
-        return False
+        return False'''
+    
+
+from datetime import datetime
+
+def validate_task_title(title):
+    if not title:
+        raise ValueError("Title cannot be empty.")
+    if len(title) > 100:
+        raise ValueError("Title must be at least 100 characters long.")
+
+def validate_task_description(description):
+    if not description:
+        raise ValueError("Description cannot be empty.")
+    if len(description) > 500:
+        raise ValueError("Description must be at least 500 characters long.")
+
+def validate_due_date(due_date):
+    try:
+        datetime.strptime(due_date, "%Y-%m-%d")
+    except ValueError:
+        raise ValueError("Due date must be in the format YYYY-MM-DD.")
+
